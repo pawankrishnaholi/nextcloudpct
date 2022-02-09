@@ -135,7 +135,7 @@ Please feel free to share your feedback and corrections(if any).
 
     **Admin Account Creation**
     > I have provided the hostname, and password to login once the container spins up.  
-    ![](./resources/images/nextcloudsetup/nextcloudadminaccconfig.jpg?raw=true "Admin Account Creation Section")  
+    ![](./resources/images/nextcloudsetup/nextcloudadminaccconfig.png?raw=true "Admin Account Creation Section")  
 
     **Database Config**
     > Here I am going to choose Debian 11 which I downloaded from the previous step.  
