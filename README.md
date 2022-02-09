@@ -55,7 +55,7 @@ Please feel free to share your feedback and corrections(if any).
     ```
     ➡ apt-get -y install mariadb-server
     ➡ apt-get -y install php
-    ➡ apt-get -y php-{cli,xml,zip,curl,gd,cgi,mysql,mbstring,intl,bcmath,gmp,imagick,apcu}
+    ➡ apt-get -y install php-{cli,xml,zip,curl,gd,cgi,mysql,mbstring,intl,bcmath,gmp,imagick,apcu}
     ➡ apt-get -y install apache2
     ➡ apt-get -y install libapache2-mod-php
     ➡ apt-get -y install curl 
@@ -94,6 +94,7 @@ Please feel free to share your feedback and corrections(if any).
     * max_execution_time = 3600  
     * max_input_time = 3600  
     * output_buffering = Off  
+    * open_basedir = /var/www/html/nextcloud:/dev/urandom:/mnt/clddata:/tmp/:/proc/meminfo  
 
 8. Download Nextcloud and set appropriate permissions  
     > I have mounted a second disk at "/mnt/ncdata", if you are not using a different disk to store Nextcloud data then feel free to change the path it to whatever you have decided.  
@@ -251,13 +252,13 @@ If you want to access the files over internet then you need a domain + SSL certi
     * 'auto_logout' => true,  
     * 'auth.bruteforce.protection.enabled' => true,  
     * 'memcache.local' => '\OC\Memcache\APCu',  
-    * 'overwriteprotocol' => 'https',  
-    * 'htaccess.RewriteBase' => '/',  
+    * 'overwriteprotocol' => 'https',
 
 7. To enable custom SSL params we created in step 5, and let apache use the modified config files, run the following commands.
     ```
     ➡ a2enmod ssl
     ➡ a2enmod headers
+    ➡ a2enmod emv
     ➡ a2ensite default-ssl
     ➡ a2enconf ssl-params
     ➡ apache2ctl configtest
